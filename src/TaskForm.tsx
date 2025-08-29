@@ -31,7 +31,6 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 			category,
 			dueDate,
 			description,
-			completed: false,
 
 		}
 		addTask(newTask)
