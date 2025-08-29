@@ -21,6 +21,7 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 	const [category, setCategory] = useState<Category>("Work");
 	const [dueDate, setDueDate] = useState("");
 	const [description, setDescription] = useState("");
+
 	const handleSubmit = (e: React.FormEvent) =>{
 		e.preventDefault();
 
@@ -50,7 +51,6 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 		<h1 className="mx-auto text-center mt-1 mb-4">ADD SOME TASK</h1>
 
 				<input type="text" 
-					className="p-"
 					value={title}
 					onChange={(e)=>{setTitle(e.target.value)}}
 
@@ -79,9 +79,9 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 			</div>
 			<div className="description-input-div rounded rounded-2xl pb-8">
 				<h1>Description</h1>
-				<textarea type="text" className="rounded rounded-2xl"
-					value={description} onChange={(e)=>{setDescription(e.target.value as description)}}
-				 placeholder="Describe your task" className="w-full border-2 p-2 hover:none focus:border-green-400" />
+				<textarea  
+					value={description} onChange={(e)=>{setDescription(e.target.value)}}
+				 placeholder="Describe your task" className="w-full border-2 p-2 hover:none focus:border-green-400 rounded-2xl" />
 			</div>
 			<div className="Add-task-button w-full">
 				<button className=" w-full bg-green-400 p-2 text-white rounded-2xl hover:bg-green-700 transistion">Create Task</button>

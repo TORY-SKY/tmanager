@@ -8,7 +8,7 @@ import type {Task} from "./Interfaces.ts"
 
 interface TaskItemProp {
 	onToggle: (id: string)=> void;
-	onEdit: (task: Task)=> void;
+	onEdit: (tasks: Task)=> void;
 	onDelete: (id: string)=> void;
 	tasks: Task;
 

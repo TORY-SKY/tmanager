@@ -3,7 +3,7 @@ import type {Task} from "./Interfaces.ts"
 import TaskItem from "./TaskItem.tsx"
 import {motion, AnimatePresence} from "framer-motion"
 interface TaskListProp {
-	tasks: Task;
+	tasks: Task[];
 	onEdit: (task: Task)=>void;
 	onDelete: (id: string)=>void;
 	onToggle: (id: string)=>void;
@@ -21,10 +21,10 @@ const TaskList: React.FC<TaskListProp>=({tasks, onEdit, onDelete, onToggle})=>{
         		<motion.div
 
         			 key={task.id}
-              initial={{ opacity: 0, y: -10 }}   // when item enters
+              initial={{ opacity: 0, y: -20 }}   // when item enters
               animate={{ opacity: 1, y: 0 }}     // animate to normal
               exit={{ opacity: 0, y: 10 }}       // when item leaves
-              transition={{ duration: 0.3 }}     // smooth timing
+              transition={{ duration: 0.5 }}     // smooth timing
         		>
 
         		<TaskItem  tasks={task} onEdit={onEdit} onDelete={onDelete} onToggle={onToggle} key={task.id}    />

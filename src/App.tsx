@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 import NavBar from "./navbar/NavBar.tsx"
 import TaskForm from "./TaskForm.tsx"
@@ -15,7 +15,7 @@ function App() {
 
 const [edittingTask, setEdittingTask] = useState<Task | null>(null);
   // add task function
-  const addTask = (task: Task)=>{
+  const addTask = (task: Task[])=>{
     setTasks([...tasks, task]);
   };
 

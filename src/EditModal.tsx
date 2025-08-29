@@ -2,19 +2,19 @@
 
 import { X } from 'lucide-react';
 import {useState} from "react";
-import type {Tasks} from "./Interfaces.ts";
+import type {Task} from "./Interfaces.ts";
 import { motion, AnimatePresence } from "framer-motion"
 
 interface ModalProps {
 
-	task: Task[];
+	tasks: Task[];
 	onClose: ()=> void;
 	onSave: (editedTask: Task) => void;
 
 }
 
 const EditModal:React.FC<ModalProps> = ({ tasks, onClose, onSave})=>{
-	const [editedTask, setEdittedTask] = useState<Tasks>(tasks);
+	const [editedTask, setEdittedTask] = useState<Task>(tasks);
 	return(
 <>
 <AnimatePresence>

@@ -1,4 +1,4 @@
-import {useState, useEffect} from "react";
+import {useState} from "react";
 import { Menu,  X } from 'lucide-react';
 import { BellRing } from 'lucide-react';
 const NavBar: React.FC = ()=>{
