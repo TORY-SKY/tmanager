@@ -1,8 +1,10 @@
-import {useState} from "react";
+import {useState, useEffect} from "react";
 import { Menu,  X } from 'lucide-react';
 import { BellRing } from 'lucide-react';
 const NavBar: React.FC = ()=>{
   const [isOpen, setIsOpen] = useState(false);
+
+
 	return(
 <div className="">
 
@@ -22,7 +24,7 @@ const NavBar: React.FC = ()=>{
       <button className="relative text-gray-700">
         <BellRing size={24} />
         {/* Example notification dot */}
-        <span className="absolute top-0 right-0 block h-2 w-2 rounded-full bg-red-500"></span>
+        <span className={`${isOpen ? 'hidden': 'absolute' } top-0 right-0 block h-2 w-2 rounded-full bg-red-500`}></span>
       </button>
 
       {/* Mobile Menu Drawer */}

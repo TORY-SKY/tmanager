@@ -4,6 +4,7 @@ export interface Task {
     id: string;
     title: string;
     dueDate: string;
-    category: Category;
+    description: string;
+    Completed: boolean;
 
   }
