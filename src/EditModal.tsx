@@ -22,21 +22,21 @@ const EditModal:React.FC<ModalProps> = ({ tasks, onClose, onSave})=>{
 	<div 
 
 		className="modal fixed inset-0 flex items-center justify-center z-10 p-4 ">
-		<div id="modal-backdrop" className="absolute inset-0 bg-gray-900 opacity-50 z-20 dark:opacity-80"></div>
+		<div id="modal-backdrop" className="dark:backfrop-filter dark:backdrop-blur-md dark:bg-opacity-50 dark:bg-gray-300 bg-gray-800 absolute inset-0  opacity-50 z-20 dark:opacity-80"></div>
 		<motion.div 
 			initial={{ scale: 0.8, opacity: 0, y: -50 }}
             animate={{ scale: 1, opacity: 1, y: 0 }}
             exit={{ scale: 0.8, opacity: 0, y: 90 }}
             transition={{ type: "spring", stiffness: 400, damping: 35 }}
 
-			className="flex flex-col border bg-white shadow-xl z-50 p-5 items-center justify-center border rounded-2xl dark:bg-gray-800 dark:text-white dark:border-none" >
+			className="backfrop-filter backdrop-blur-md bg-opacity-50  flex flex-col border bg-white shadow-xl z-50 p-5 items-center justify-center border rounded-2xl dark:bg-gray-800 dark:text-white dark:border-none" >
 			<nav className="flex items-center justify-between w-full mb-2">
 				<h1 className="text-xl">Edit Task</h1>
 				<button className="" onClick={()=>onClose()}><X className="hover:text-red-600" size={24} /><span className="sr-only">close</span></button>
 			</nav>
 			<div>
 					<input placeholder="Edit Task title" 
-						className="w-full border-2 border-gray-300  rounded p-3 bg-transparent my-3 rounded-2xl dark:border-none dark:bg-gray-900 dark:outline-none" 
+						className="w-full border-2 border-gray-300 shadow-xl rounded p-3 bg-transparent my-3 rounded-2xl dark:border-none dark:bg-gray-900 dark:outline-none" 
 						value={editedTask.title}
 						onChange={(e)=>setEdittedTask({...editedTask, title:e.target.value})}
 					/>
@@ -44,7 +44,7 @@ const EditModal:React.FC<ModalProps> = ({ tasks, onClose, onSave})=>{
 						value={editedTask.description}
 						onChange={(e)=>setEdittedTask({...editedTask, description:e.target.value})}
 						
-						className="w-full border-2 border-gray-300  rounded p-3 bg-transparent my-3 rounded-2xl dark:border-none dark:bg-gray-900 dark:outline-none"  />
+						className="w-full border-2 border-gray-300 shadow-xl rounded p-3 bg-transparent my-3 rounded-2xl dark:border-none dark:bg-gray-900 dark:outline-none"  />
 						
 					<button className="float-right bg-green-500 text-white px-3 py-3 rounded-2xl hover:bg-green-600 mx-3 dark:bg-black"
 						onClick={()=>onSave(editedTask)}

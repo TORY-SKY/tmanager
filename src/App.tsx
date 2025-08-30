@@ -52,7 +52,7 @@ const editTask= (task: Task)=>{
 
   return (
     <>
-      <div className="p-6 lg:px-8 dark:bg-gray-900">
+      <div className="p-6 lg:px-8 dark:bg-gray-900 ">
         <NavBar onToggle={toggle} darkMode={darkMode} />
         <TaskForm addTask={addTask} />
         <TaskList tasks={tasks}  onEdit={setEdittingTask} onDelete={deleteTask} />

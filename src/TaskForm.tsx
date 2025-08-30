@@ -49,9 +49,9 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 	
 	return(
 	<>
-	<div className="py-8 w-full  mx-auto mx-w-md mx-w-lg  ">
+	<div className="py-8 w-full  mx-auto mx-w-md mx-w-lg ">
 	<div className="w-full lg:w-md mx-auto  lg:px-40 ">
-		<form onSubmit={handleSubmit} className="flex flex-col w-full gap-3 lg:px-5 dark:text-gray-200  py-4 h-full border p-3 rounded-2xl shadow-xl dark:bg-gray-800 dark:text-white dark:border-none">
+		<form onSubmit={handleSubmit} className="flex flex-col  w-full gap-3 lg:px-5 dark:text-gray-200  py-4 h-full border p-3 rounded-2xl shadow-xl dark:bg-gray-800 dark:text-white dark:border-none">
 			<div className="task input my-auto pb-8">
 		<h1 className="mx-auto text-center mt-1 mb-4 text-2xl ">ADD SOME TASK</h1>
 
