@@ -1,8 +1,8 @@
 {
-  "name": "taskmanager",
+  "name": "tmanager",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://TORY-SKY.github.io/taskmanager",
+  "homepage": "https://TORY-SKY.github.io/tmanager",
   "type": "module",
   "scripts": {
     "dev": "vite",
