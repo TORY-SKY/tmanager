@@ -25,7 +25,7 @@ const TaskItem:React.FC<TaskItemProp> = ({onEdit, onDelete, tasks})=>{
 	return (
 		<>
 
-		<div className="backdrop-blur-xl bg-white/50 rounded-3xl p-5 shadow-lg  border my-3 dark:bg-gray-700 dark:border-none dark:text-white" >
+		<div className="backdrop-blur-xl bg-white/50 rounded-3xl p-5 shadow-lg  border my-3 dark:bg-gray-800 dark:border-none dark:text-white" >
 			<div className="flex flex-row gap-2 mb-4">
 					<div>
 						{tasks.completed ?<CheckCircle /> : <Circle cursor="pointer" />}
@@ -40,8 +40,8 @@ const TaskItem:React.FC<TaskItemProp> = ({onEdit, onDelete, tasks})=>{
 				</div>
 
 			</div>
-			<div className="flex justify-end gap-4 ">
-				<button className="hover:bg-gray-100 dark:hover:bg-gray-900 dark:p-2 px-2 rounded" onClick={()=>onEdit(tasks)}><Edit className="h-4 w-4 text-green-600" /></button>
+			<div className="flex justify-end  ">
+				<button className="hover:bg-gray-100 dark:hover:bg-gray-900 dark:p-2  rounded" onClick={()=>onEdit(tasks)}><Edit className="h-4 w-4 text-green-600" /></button>
 				<button className="hover:bg-gray-100 px-2 hover:bg-gray-100 dark:hover:bg-gray-900 dark:rounded" title="delete" onClick={()=>onDelete(tasks.id)}><Trash2 className="h-4 w-4 text-black-600 hover:text-red-600 " /></button>
 			</div>
 

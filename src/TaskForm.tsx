@@ -66,7 +66,7 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 			{/* Date and category div */}
 			<div className="date flex flex-col md:flex-row gap-3 item-center justify-between mb-2">
 			{/* Date div */}
-				<div  className="date w-full flex-1 item-center border-2 rounded-2xl dark:border-none dark:p-2 dark:bg-gray-900 dark:rounded-0">
+				<div  className="date w-full flex-1 item-center border-2 rounded-2xl dark:border-none dark:p-2 dark:bg-gray-900 dark:rounded-0 ">
 					<input type="date" value={dueDate} onChange={(e)=>{setDueDate(e.target.value )}} 
 						className="w-full bg-transparent p-2 rounded focus:outline-none focus:ring-0 focus:border-green-500 dark:bg-gray-900"
 				placeholder="Input task" 
