@@ -2,41 +2,47 @@
 
 import {useState} from "react"
 import { v4 as uuidv4 } from 'uuid';
+import type {Task} from "./Interfaces.ts";
+
 // import {ChevronDown} from "lucide-react"
 
 type Category = "Work" | "Personal" | "Study";
-	export interface Task {
-		id: string;
-		title: string;
-		dueDate: string;
-		category: Category;
-		description: string;
+	// export interface Task {
+	// 	id: string;
+	// 	title: string;
+	// 	dueDate: string;
+	// 	category: Category;
+	// 	description: string;
 
-	}
+	// }
 	interface TaskFormProperty{
 		addTask: (task: Task) => void;
 	}
+	 type Completed = true | false
 const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 	const [title, setTitle] = useState("");
 	const [category, setCategory] = useState<Category>("Work");
+	const [completed, setCompleted] = useState<Completed>(false);
 	const [dueDate, setDueDate] = useState("");
 	const [description, setDescription] = useState("");
 
 	const handleSubmit = (e: React.FormEvent) =>{
 		e.preventDefault();
 
-		const newTask: Task = {
+		const task: Task = {
 			id: uuidv4(),
 			title,
 			category,
 			dueDate,
 			description,
+			completed,
 
 		}
-		addTask(newTask)
+		addTask(task)
 		setTitle("");
 		setCategory("Work")
 		setDescription("")
+		setCompleted(false);
 		
 	}
 
@@ -45,29 +51,30 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 	<>
 	<div className="py-8 w-full  mx-auto mx-w-md mx-w-lg  ">
 	<div className="w-full lg:w-md mx-auto  lg:px-40 ">
-		<form onSubmit={handleSubmit} className="flex flex-col w-full gap-3 lg:px-5  py-4 h-full border p-3 rounded-2xl shadow-xl">
+		<form onSubmit={handleSubmit} className="flex flex-col w-full gap-3 lg:px-5 dark:text-gray-200  py-4 h-full border p-3 rounded-2xl shadow-xl dark:bg-gray-800 dark:text-white dark:border-none">
 			<div className="task input my-auto pb-8">
-		<h1 className="mx-auto text-center mt-1 mb-4">ADD SOME TASK</h1>
+		<h1 className="mx-auto text-center mt-1 mb-4 text-2xl ">ADD SOME TASK</h1>
 
 				<input type="text" 
 					value={title}
 					onChange={(e)=>{setTitle(e.target.value)}}
 
 				placeholder="Input task" 
-				className="p-2 w-100  border-2 rounded-2xl w-full hover:none focus:border-green-400"
+				className="p-3 w-100  border-2 rounded-2xl w-full hover:none focus:border-green-400  dark:border-none dark:bg-gray-900 dark:text-white dark:focus:outline-none dark:p-3"
 				required />
 			</div>
 			{/* Date and category div */}
-			<div className="date flex flex-col md:flex-row gap-3 item-center justify-between ">
+			<div className="date flex flex-col md:flex-row gap-3 item-center justify-between mb-2">
 			{/* Date div */}
-				<div  className="date w-full flex-1 item-center border-2 rounded-2xl">
-					<input type="date" value={dueDate} onChange={(e)=>{setDueDate(e.target.value )}} className="w-full bg-transparent p-2 rounded focus:outline-none focus:ring-0 focus:border-green-500"
+				<div  className="date w-full flex-1 item-center border-2 rounded-2xl dark:border-none dark:p-2 dark:bg-gray-900 dark:rounded-0">
+					<input type="date" value={dueDate} onChange={(e)=>{setDueDate(e.target.value )}} 
+						className="w-full bg-transparent p-2 rounded focus:outline-none focus:ring-0 focus:border-green-500 dark:bg-gray-900"
 				placeholder="Input task" 
 				
 				required />
 				</div>
-				<div className="date flex flex-1 border-2 w-full  p-2 item-center justify-between rounded-2xl">
-					<select value={category} onChange={(e)=>{setCategory(e.target.value as category)}} className="w-full hover:none focus:border-green-400  bg-transparent justify-center flex mx-auto dark:bg-gray-800">
+				<div className="date flex flex-1 border-2 w-full  p-2 item-center justify-between rounded-2xl dark:bg-gray-900 dark:border-none dark:rounded-2xl dark:rounded">
+					<select value={category} onChange={(e)=>{setCategory(e.target.value as Category)}} className="w-full hover:none focus:border-green-400  bg-transparent justify-center flex mx-auto ">
 						<option>Category</option>
 						<option>Work</option>
    						<option>Personal</option>
@@ -77,13 +84,12 @@ const TaskForm: React.FC<TaskFormProperty> =({addTask})=>{
 
 			</div>
 			<div className="description-input-div rounded rounded-2xl pb-8">
-				<h1>Description</h1>
 				<textarea  
 					value={description} onChange={(e)=>{setDescription(e.target.value)}}
-				 placeholder="Describe your task" className="w-full border-2 p-2 hover:none focus:border-green-400 rounded-2xl" />
+				 placeholder="Describe your task" className="w-full border-2 p-2 hover:none focus:border-green-400 rounded-2xl dark:border-none dark:bg-gray-900 dark:text-white dark:focus:outline-none dark:p-3" />
 			</div>
 			<div className="Add-task-button w-full">
-				<button className=" w-full bg-green-400 p-2 text-white rounded-2xl hover:bg-green-700 transistion">Create Task</button>
+				<button className="dark:bg-black dark:hover:bg-gray-900 dark:shadow-xl w-full bg-green-400 p-2 text-white rounded-2xl hover:bg-green-700 transistion">Create Task</button>
 			</div>
 		</form>
 	</div>

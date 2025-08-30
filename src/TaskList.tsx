@@ -6,16 +6,16 @@ interface TaskListProp {
 	tasks: Task[];
 	onEdit: (task: Task)=>void;
 	onDelete: (id: string)=>void;
-	onToggle: (id: string)=>void;
+
 }
 
-const TaskList: React.FC<TaskListProp>=({tasks, onEdit, onDelete, onToggle})=>{
+const TaskList: React.FC<TaskListProp>=({tasks, onEdit, onDelete})=>{
 
 	return(
 <>
 	<div className="lg:px-40 ">
 		 <AnimatePresence>
-		<h1 className="font-noto">Today's Task</h1>
+		<h1 className=" text-2xl item-center text-center dark:text-white">Today's Task</h1>
 
         	{tasks.map((task)=>(
         		<motion.div
@@ -27,7 +27,7 @@ const TaskList: React.FC<TaskListProp>=({tasks, onEdit, onDelete, onToggle})=>{
               transition={{ duration: 0.5 }}     // smooth timing
         		>
 
-        		<TaskItem  tasks={task} onEdit={onEdit} onDelete={onDelete} onToggle={onToggle} key={task.id}    />
+        		<TaskItem  tasks={task} onEdit={onEdit} onDelete={onDelete}  key={task.id}    />
         			</motion.div>
         		))}
 
