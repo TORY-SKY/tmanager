@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import NavBar from "./navbar/NavBar.tsx"
+import DeleteModal from "./DeleteModal.tsx"
 import TaskForm from "./TaskForm.tsx"
 import TaskList from "./TaskList.tsx"
 import {useLocalStorage} from "./hooks/useLocalStorage.ts"
@@ -14,6 +15,8 @@ const [darkMode, setDarkMode] = useState<boolean>(false);
   const [tasks, setTasks] = useLocalStorage<Task[]>("task", []);
 
 const [edittingTask, setEdittingTask] = useState<Task | null>(null);
+const [taskToDelete, setTaskToDelete] = useState<Task | null>(null);
+const [showDeleteModal, setShowDeleteModal] = useState<boolean>(false);
 
 
 useEffect(()=>{
@@ -37,8 +40,12 @@ useEffect(()=>{
   }
 
 
-const deleteTask = (id: string)=>{
-setTasks(()=>tasks.filter((tsk)=>tsk.id !== id))
+const deleteTask = ()=>{
+if(taskToDelete){
+  setTasks((tasks)=>tasks.filter((tsk)=>tsk.id !== taskToDelete.id));
+}
+setTaskToDelete(null);
+setShowDeleteModal(false);
 }
 
 
@@ -49,15 +56,30 @@ const editTask= (task: Task)=>{
 
 
 }
+const handleDelete = (task: Task)=>{
+  setTaskToDelete(task);
+  setShowDeleteModal(true);
+
+}
+ const cancelDelete = ()=>{
+  setTaskToDelete(null);
+  setShowDeleteModal(false);
+ }
 
   return (
     <>
-      <div className="p-6 lg:px-8 dark:bg-gray-900 ">
+      <div className="p-6 lg:px-8 dark:bg-gray-900">
         <NavBar onToggle={toggle} darkMode={darkMode} />
         <TaskForm addTask={addTask} />
-        <TaskList tasks={tasks}  onEdit={setEdittingTask} onDelete={deleteTask} />
+        <TaskList tasks={tasks}  onEdit={setEdittingTask} onDelete={handleDelete} />
         {edittingTask && <EditModal tasks={edittingTask}  onClose={()=>setEdittingTask(null)}  onSave={editTask}  />}
       </div>
+      {<DeleteModal 
+        isOpen={showDeleteModal} 
+        taskName={taskToDelete?.title} 
+        onClose={cancelDelete} 
+        onConfirm={deleteTask}
+      />}
       {/*<BottomNav />*/}
       
 

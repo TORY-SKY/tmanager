@@ -15,7 +15,7 @@ interface ModalProps {
 
 const EditModal:React.FC<ModalProps> = ({ tasks, onClose, onSave})=>{
 	const [editedTask, setEdittedTask] = useState<Task>(tasks);
-	console.log(tasks);
+
 	return(
 <>
 <AnimatePresence>

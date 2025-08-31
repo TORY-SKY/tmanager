@@ -5,7 +5,7 @@ import {motion, AnimatePresence} from "framer-motion"
 interface TaskListProp {
 	tasks: Task[];
 	onEdit: (task: Task)=>void;
-	onDelete: (id: string)=>void;
+	onDelete: (tasks: Task)=>void;
 
 }
 
