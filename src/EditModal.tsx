@@ -46,12 +46,14 @@ const EditModal:React.FC<ModalProps> = ({ tasks, onClose, onSave})=>{
 						
 						className="w-full border-2 border-gray-300 shadow-xl rounded p-3 bg-transparent my-3 rounded-2xl dark:border-none dark:bg-gray-900 dark:outline-none"  />
 						
-					<button className="float-right bg-green-500 text-white px-3 py-3 rounded-2xl hover:bg-green-600 mx-3 dark:bg-black"
+					<div className="flex flex-row w-full items-center justify-center gap-3">
+						<button className="float-right bg-green-500 text-white p-3 rounded-2xl hover:bg-green-600 dark:bg-black w-1/2"
 						onClick={()=>onSave(editedTask)}
 					>Save Changes</button>
-						<button className="float-right bg-red-400 text-white px-3 py-3 rounded-2xl hover:bg-red-600"
+						<button className="float-right bg-red-400 text-white p-3 rounded-2xl hover:bg-red-600 w-1/2"
 						onClick={()=>onClose()}
 					>cancel</button>
+					</div>
 
 			</div>
 		</motion.div>

@@ -7,7 +7,7 @@ import TaskList from "./TaskList.tsx"
 import {useLocalStorage} from "./hooks/useLocalStorage.ts"
 import type {Task} from "./Interfaces.ts";
 import EditModal from "./EditModal.tsx"
-
+import FAQ from "./FAQ.tsx"
 
 function App() {
 
@@ -80,8 +80,8 @@ const handleDelete = (task: Task)=>{
         onClose={cancelDelete} 
         onConfirm={deleteTask}
       />}
-      {/*<BottomNav />*/}
-      
+
+      <FAQ />
 
     </>
   )
