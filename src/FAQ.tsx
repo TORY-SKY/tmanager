@@ -16,10 +16,10 @@ const PlusMinusIcon:React.FC<{ open: boolean }> = ({ open }) => (
     aria-hidden
   >
     {/* Horizontal bar (always visible) */}
-    <span className="absolute left-1/2 top-1/2 block h-[2px] bg-green-600 w-6 -translate-x-1/2 -translate-y-1/2 bg-white"></span>
+    <span className="absolute left-1/2 top-1/2 block h-[2px]  w-6 -translate-x-1/2 -translate-y-1/2 bg-green-800"></span>
     {/* Vertical bar (scales away when open) */}
     <span
-      className={`absolute left-1/2 top-1/2 bg-green-600 block w-[2px] h-6 -translate-x-1/2 -translate-y-1/2 bg-white transition-transform duration-300 ${
+      className={`absolute left-1/2 top-1/2  block w-[2px] h-6 -translate-x-1/2 -translate-y-1/2 bg-green-600 transition-transform duration-300 ${
         open ? "scale-y-0" : "scale-y-100"
       }`}
     />
